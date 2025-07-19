@@ -5,10 +5,20 @@ public class Program
 {
     static void Main(string[] args)
     {
-        // This project is here for you to use as a "Sandbox" to play around
-        // with any code or ideas you have that do not directly apply to
-        // one of your projects.
+        List<string> palabras = new List<string> { "dog", "cat", "fish" };
+        DoSomethingElse(palabras);
 
-        Console.WriteLine("Hello Sandbox World!");
+    }
+
+    static void DoSomethingElse(List<string> words)
+    {
+        for (int i = 0; i < words.Count; i++)
+        {
+            for (int j = 0; j < words.Count; j++)
+            {
+                Console.WriteLine($"{words[i]} - {words[j]}");
+
+            }
+        }
     }
 }
