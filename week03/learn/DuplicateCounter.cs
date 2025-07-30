@@ -1,10 +1,35 @@
 ﻿public class DuplicateCounter
 {
-    //Count how many duplicates are in a collection of data.
+    // Count how many duplicates are in a collection of data.
+    public static int CountDuplicates(int[] data)
+    {
+        // Paso 1: Crear un HashSet para los números que ya hemos visto
+        HashSet<int> seen = new HashSet<int>();
 
+        // Variable para contar los duplicados
+        int duplicatesCount = 0;
+
+        // Paso 2: Recorrer el array y verificar los duplicados
+        foreach (int number in data)
+        {
+            if (seen.Contains(number))  // Si el número ya ha sido visto
+            {
+                duplicatesCount++;  // Es un duplicado, sumamos
+            }
+            else
+            {
+                seen.Add(number);  // Si no ha sido visto, lo agregamos al HashSet
+            }
+        }
+
+        return duplicatesCount;  // Retornamos la cantidad de duplicados
+    }
+
+    // Método principal donde se ejecuta el programa
     public static void Run()
     {
-        int[] data = [
+        int[] data = new int[]
+        {
             50, 9, 24, 100, 7, 75, 93, 24, 17, 16, 97, 6, 18, 81, 48, 37, 49, 33, 60, 3, 99, 32, 88, 29, 65, 20, 35, 33,
             15, 81, 31, 93, 17, 5, 5, 79, 12, 91, 18, 31, 12, 94, 39, 98, 10, 72, 20, 79, 100, 27, 46, 28, 50, 1, 7, 14,
             78, 100, 55, 26, 48, 33, 96, 77, 69, 8, 33, 36, 42, 98, 42, 32, 49, 65, 1, 82, 30, 74, 73, 89, 23, 76, 25,
@@ -16,15 +41,9 @@
             6, 54, 10, 22, 16, 40, 67, 50, 58, 37, 35, 7, 44, 10, 31, 45, 93, 12, 55, 67, 48, 32, 43, 57, 58, 37, 76,
             85, 47, 80, 18, 32, 59, 98, 92, 53, 98, 29, 61, 82, 42, 78, 97, 23, 94, 38, 20, 73, 11, 99, 94, 92, 82, 82,
             65
-        ];
+        };
 
         Console.WriteLine($"Number of items in the collection: {data.Length}");
         Console.WriteLine($"Number of duplicates : {CountDuplicates(data)}");
-    }
-
-    private static int CountDuplicates(int[] data)
-    {
-        // Add code here.
-        return 0;
     }
 }
